@@ -4,72 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" type="text/css">
     <title>Max Portfolio</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-    </style>
 </head>
 
 <body>
 
-    <nav class="menu">
+    <nav>
         <span>
-            <a href="#sc2" class="button1" aria-label="Projetos"></a>
-            <a href="#sc1" class="button2" aria-label="Home"></a>
-            <a href="#sc3" class="button3" aria-label="Contato"></a>
+            <a>Projetos</a>
+            <a>Home</a>
+            <a>Contato</a>
         </span>
     </nav>
+    <main>
+        <section>
+            <div>
+                <h1>Max Dezan Rossi</h1>
+                <p>Olá! Me chamo Max, tenho 19 anos e sou programador e Desenvolvedor Web iniciante.</p>
+                <a href="/templates/sobre.html">Sobre mim</a>
+            </div>
+            <img src="static/imagens/max.JPG" alt="foto max">
+        </section>
 
-    <section id="sc1">
-        <div id="main">
-            <h1>Max Dezan Rossi</h1>
-            <p>Olá! Me chamo Max, tenho 19 anos e sou programador e Desenvolvedor Web iniciante.</p>
-            <a href="/sobre/index.html" class="hover-underline">Sobre mim</a>
-        </div>
-        <img id="img1" src="imagens/max.JPG" alt="foto max" style="position: relative;
-            left: 60px;
-            bottom: 20px;">
-    </section>
+        <section>
+            <div>
+                <h2>Portfolio Profissional</h2>
+                <img src="static/imagens/pfolio.avif" alt="portfolio">
+            </div>
+            <div>
+                <a href="/templates/landing.html">Landing Page Comercial</a>
+                <img src="static/imagens/landing.png" alt="landing-page">
+            </div>
 
-    <section id="sc2">
-        <div id="projetos">
-            <h2>Portfolio Profissional</h2>
-            <img src="imagens/pfolio.avif" alt="portfolio"
-                style="height: auto; width: 250px; object-fit: cover; position: relative;
-                 right: 18px; border-radius: 10px;">
-        </div>
-        <div id="projetos2">
-            <a href="projeto/index.html" style="color: #160d18;
-            font-size: 30px;
-            font-weight: 600;">Landing Page Comercial</a>
-            <img src="imagens/landing.png" alt="landing-page"
-                style="height: auto; width: 250px; object-fit: cover; position: relative;
-                 right: 18px; top: 15px; border-radius: 10px;">
-        </div>
+            <div>
+                <h2>Quiz</h2>
+                <img src="static/imagens/quiz.png" alt="portfolio">
+            </div>
+        </section>
 
-        <div id="projetos3">
-            <h2>Quiz</h2>
-            <img src="imagens/quiz.png" alt="portfolio"
-                style="height: auto; width: 250px; object-fit: cover; position: relative;
-                 right: 18px; top: 70px; border-radius: 10px;">
-        </div>
-    </section>
+        <section>
+            <div>
+                <h2>Contato</h2>
+                <span>
+                    <a href="https://wa.me/5551985743159" target="_blank" aria-label="WhatsApp"></a>
 
-    <section id="sc3">
-        <div id="contato">
-            <h2>Contato</h2>
-            <span class="social-icons">
-                <a href="https://wa.me/5551985743159" target="_blank" class="button4" aria-label="WhatsApp"></a>
+                    <a href="https://github.com/MaxDezan" target="_blank" aria-label="GitHub"></a>
 
-                <a href="https://www.instagram.com/dznm4x" target="_blank" class="button5" aria-label="Instagram"></a>
-
-                <a href="https://www.linkedin.com/in/max-dezan-rossi-51040023a" target="_blank" class="button6"
-                    aria-label="LinkedIn"></a>
-            </span>
-        </div>
-    </section>
-
+                    <a href="https://www.linkedin.com/in/max-dezan-rossi-51040023a" target="_blank" aria-label="LinkedIn"></a>
+                </span>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
