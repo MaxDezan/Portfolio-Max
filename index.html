@@ -1,83 +1,212 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="html">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Max Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            fonte: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            azul: '#778899',
+            cinza: '#a9a9a9',
+            hover: '#507091',
+            texto: '#160d18',
+          }
         }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-      
+      }
     }
-  </style>
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+    .html {
+        @apply scroll-smooth;
+    }
+    .body {
+      @apply bg-gradient-to-b from-azul via-cinza to-azul text-texto font-fonte;
+    }
+    .nav {
+      @apply fixed top-0 left-0 w-full h-12 bg-white/10 backdrop-blur flex flex-row justify-center items-center gap-4;
+    }
+    .home {
+      @apply flex flex-col-reverse lg:flex-row-reverse justify-center items-center h-screen
+    }
+    .container {
+      @apply w-4/5 max-w-full h-auto m-0 p-4 flex flex-col flex-wrap justify-center;
+    }
+    .card2 {
+      @apply md:w-3/6 h-auto m-12 p-8 rounded-2xl text-center bg-white/60 shadow border border-white/20;
+    }
+    .card {
+      @apply w-[30%] h-[40%] p-8 rounded-2xl text-center bg-white/70 shadow border border-white/20;
+    }
+    .foto1 {
+      @apply m-4 rounded-full object-cover w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 shadow-lg;
+    }
+    .button {
+      @apply inline-block w-8 h-8 bg-cover bg-no-repeat bg-center border-0 cursor-pointer transition-opacity duration-200 hover:opacity-70;
+    }
+    .social-icons {
+      @apply flex flex-row gap-8 justify-center;
+    }
+    .h1 {
+      @apply text-3xl font-semibold lg:text-5xl m-0 p-0;
+    }
+    .h2 {
+      @apply text-3xl font-semibold mb-4;
+    }
+    .p {
+      @apply text-lg md:text-2xl mt-2 m-0 p-0 lg:font-light;
+    }
+    .sobre {
+      @apply text-lg md:text-xl lg:text-2xl inline hover:text-hover font-medium mt-4;
+    }
+    .sobre::after {
+      content: '';
+      @apply absolute w-full h-0.5 bottom-[-2px] left-0 bg-blue-500 scale-x-0 transform origin-bottom-right transition-transform duration-300 ease-out;
+    }
+    .sobre:hover::after {
+      @apply scale-x-50 transform origin-bottom-left;
+    }
+    .section {
+      @apply m-12 flex flex-col justify-center items-center gap-10;
+    }
+    .projetos {
+      @apply flex justify-center items-center h-screen gap-2;
+    }
+    .project-img {
+      @apply w-full h-auto object-cover rounded-lg;
+    }
+    .form-container {
+      @apply max-w-md mx-auto bg-white p-6 rounded-lg shadow-md space-y-4;
+    }
+    .form-label {
+      @apply block text-sm font-medium;
+    }
+    .form-input {
+      @apply mt-1 block w-full rounded-md border-gray-800 shadow-sm focus:ring-blue-200 focus:border-azul;
+    }
+    .form-fieldset {
+      @apply space-y-2;
+    }
+    .form-legend {
+      @apply text-sm font-medium;
+    }
+    .form-check {
+      @apply text-blue-600;
+    }
+    .form-radio {
+      @apply text-blue-600;
+    }
+    .form-button {
+      @apply w-full bg-azul text-white py-2 px-4 rounded-md hover:bg-azul/70;
+    }
+    .form-title {
+      @apply text-2xl font-bold mb-6 text-center;
+    }
+    .contato {
+      @apply flex justify-center items-center;
+    }
+  }
+</style>
 </head>
 
-<body>
+<body class="body">
 
-    <nav>
-        <span>
-            <a>Projetos</a>
-            <a>Home</a>
-            <a>Contato</a>
-        </span>
-    </nav>
-    <main>
-        <section>
-            <div>
-                <h1>Max Dezan Rossi</h1>
-                <p>Olá! Me chamo Max, tenho 19 anos e sou programador e Desenvolvedor Web iniciante.</p>
-                <a href="/templates/sobre.html">Sobre mim</a>
-            </div>
-            <img src="static/imagens/max.JPG" alt="foto max">
-        </section>
+  <nav class="nav">
+      <a href="#projetos" class="button" style="background-image: url('static/imagens/editar-alt.png');"
+        aria-label="Projetos"></a>
+      <a href="#home" class="button" style="background-image: url('static/imagens/casa.png');" aria-label="Home"></a>
+      <a href="#contato" class="button" style="background-image: url('static/imagens/do-utilizador.png');"
+        aria-label="Contato"></a>
+  </nav>
 
-        <section>
-            <div>
-                <h2>Portfolio Profissional</h2>
-                <img src="static/imagens/pfolio.avif" alt="portfolio">
-            </div>
-            <div>
-                <a href="/templates/landing.html">Landing Page Comercial</a>
-                <img src="static/imagens/landing.png" alt="landing-page">
-            </div>
+  <main class="home" id="home">
+    <div class="container">
+      <h1 class="h1">Max Dezan Rossi</h1>
+      <p class="p">Olá! Me chamo Max, tenho 19 anos e sou programador e Desenvolvedor Web iniciante.</p>
+      <a href="templates/sobre.html" class="sobre">Sobre mim</a>
+    </div>
+    <img src="static/imagens/max.JPG" alt="foto max" class="foto1">
+  </main>
 
-            <div>
-                <h2>Quiz</h2>
-                <img src="static/imagens/quiz.png" alt="portfolio">
-            </div>
-        </section>
+  <section class="projetos" id="projetos">
+    <div class="card">
+      <h2 class="h3">Portfolio Profissional</h2>
+      <img src="static/imagens/pfolio.avif" alt="portfolio" class="project-img">
+    </div>
+    <div class="card">
+      <a href="templates/landing.html" class="h2">Landing Page Comercial</a>
+      <img src="static/imagens/landing.png" alt="landing-page" class="project-img">
+    </div>
+    <div class="card">
+      <h2 class="h2">Quiz</h2>
+      <img src="static/imagens/quiz.png" alt="quiz" class="project-img">
+    </div>
+  </section>
 
-        <section>
-            <div>
-                <h2>Contato</h2>
-                <span>
-                    <a href="https://wa.me/5551985743159" target="_blank" aria-label="WhatsApp"></a>
+  <section class="contato" id="contato">
+    <div class="card2">
+      <h2 class="h2">Contato</h2>
+      <span class="social-icons">
+        <a href="https://wa.me/5551985743159" target="_blank" class="button"
+          style="background-image: url('static/imagens/whatsapp.png');" aria-label="WhatsApp"></a>
+        <a href="https://www.instagram.com/dznm4x" target="_blank" class="button"
+          style="background-image: url('static/imagens/instagram.png');" aria-label="Instagram"></a>
+        <a href="https://www.linkedin.com/in/max-dezan-rossi-51040023a" target="_blank" class="button"
+          style="background-image: url('static/imagens/linkedin.png');" aria-label="LinkedIn"></a>
+      </span>
+  <h3 class="form-title mt-8">Formulário de Contato</h3>
+  <form class="form-container">
+    <div>
+      <label class="form-label">Nome:</label>
+      <input type="text" name="nome" class="form-input">
+    </div>
+    <div>
+      <label class="form-label">Motivo do Contato:</label>
+      <select name="motivo" class="form-input">
+        <option value="suporte">Suporte</option>
+        <option value="vendas">Prestação de Serviços</option>
+        <option value="outros">Outros</option>
+      </select>
+    </div>
+    <fieldset class="form-fieldset">
+      <legend class="form-legend">Preferências de Contato:</legend>
+      <label class="inline-flex items-center">
+        <input type="checkbox" name="contato" value="email" class="form-check">
+        <span class="ml-2">Email</span>
+      </label>
+      <label class="inline-flex items-center">
+        <input type="checkbox" name="contato" value="telefone" class="form-check">
+        <span class="ml-2">Telefone</span>
+      </label>
+    </fieldset>
+    <fieldset class="form-fieldset">
+      <legend class="form-legend">Sexo:</legend>
+      <label class="inline-flex items-center">
+        <input type="radio" name="sexo" value="masculino" class="form-radio">
+        <span class="ml-2">Masculino</span>
+      </label>
+      <label class="inline-flex items-center">
+        <input type="radio" name="sexo" value="feminino" class="form-radio">
+        <span class="ml-2">Feminino</span>
+      </label>
+    </fieldset>
+    <button type="submit" class="form-button">Enviar</button>
+  </form>
+  </div>
+  </section>
 
-                    <a href="https://github.com/MaxDezan" target="_blank" aria-label="GitHub"></a>
-
-                    <a href="https://www.linkedin.com/in/max-dezan-rossi-51040023a" target="_blank"
-                        aria-label="LinkedIn"></a>
-                </span>
-            </div>
-        </section>
-    </main>
 </body>
 
 </html>
