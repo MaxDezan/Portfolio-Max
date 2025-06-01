@@ -2,11 +2,11 @@
 <html lang="pt-BR" class="html">
 
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
   <title>Max Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -94,7 +94,7 @@
         @apply text-lg font-semibold mb-2 leading-4;
       }
       .contato {
-        @apply flex justify-center items-center h-screen w-full pt-24 pb-4;
+        @apply flex justify-center items-center h-screen w-full pt-32 pb-8;
       }
       .card2 {
         @apply p-6 rounded-2xl text-center bg-white/60 shadow border border-white/20 w-full max-w-lg h-auto;
@@ -103,13 +103,13 @@
         @apply flex flex-row gap-8 justify-center mb-8 mt-4;
       }
       .form-container {
-        @apply flex flex-col bg-white p-4 rounded-lg shadow-md h-auto w-full items-center space-y-2 mt-4;
+        @apply flex flex-col bg-white p-4 rounded-lg shadow-md h-auto w-full items-center space-y-2 mt-4 gap-2;
       }
       .form-label {
         @apply block text-sm font-semibold;
       }
       .form-input {
-        @apply mt-1 block w-full rounded-md shadow-sm border border-gray-300 text-sm;
+        @apply mt-1 block w-full rounded-md shadow-sm border border-gray-300 text-sm mb-4;
       }
       .form-check,
       .form-radio {
@@ -119,13 +119,16 @@
         @apply space-y-2;
       }
       .form-legend {
-        @apply text-sm font-semibold;
+        @apply text-sm font-semibold ;
       }
       .form-button {
         @apply w-2/3 bg-azul text-white py-2 px-4 rounded-md transition-opacity hover:opacity-70 ease-in duration-150 shadow-md;
       }
-      .opcoes {
+      .opcoes-spacing {
         @apply inline-flex items-center mx-4;
+      }
+      .check-spacing {
+        @apply ml-2 text-sm;
       }
     }
   </style>
@@ -179,14 +182,14 @@
             style="background-image: url('static/imagens/linkedin.png');" aria-label="LinkedIn"></a>
         </div>
         <h2 class="h2">Formulário de Contato</h2>
-        <form class="form-container">
+        <form id="contactForm" method="POST" class="form-container">
           <div>
             <label class="form-label">Nome:</label>
-            <input type="text" name="nome" class="form-input">
+            <input type="text" name="nome" class="form-input" required>
           </div>
           <div>
             <label class="form-label">Motivo do Contato:</label>
-            <select name="motivo" class="form-input">
+            <select name="motivo" class="form-input" required>
               <option value="suporte">Suporte</option>
               <option value="vendas">Prestação de Serviços</option>
               <option value="outros">Outros</option>
@@ -194,28 +197,38 @@
           </div>
           <fieldset class="form-fieldset">
             <legend class="form-legend">Preferências de Contato:</legend>
-            <label class="opcoes">
+            <label class="opcoes-spacing">
               <input type="checkbox" name="contato" value="email" class="form-check">
-              <span class="ml-2">Email</span>
+              <span class="check-spacing">Email</span>
             </label>
-            <label class="opcoes">
+            <label class="opcoes-spacing">
               <input type="checkbox" name="contato" value="telefone" class="form-check">
-              <span class="ml-2">Telefone</span>
+              <span class="check-spacing">Telefone</span>
             </label>
           </fieldset>
           <fieldset class="form-fieldset">
             <legend class="form-legend">Sexo:</legend>
-            <label class="opcoes">
-              <input type="radio" name="sexo" value="masculino" class="form-radio">
-              <span class="ml-2">Masculino</span>
+            <label class="opcoes-spacing">
+              <input type="radio" name="sexo" value="masculino" class="form-radio" required>
+              <span class="check-spacing">Masculino</span>
             </label>
-            <label class="opcoes">
+            <label class="opcoes-spacing">
               <input type="radio" name="sexo" value="feminino" class="form-radio">
-              <span class="ml-2">Feminino</span>
+              <span class="check-spacing">Feminino</span>
             </label>
           </fieldset>
           <button type="submit" class="form-button">Enviar</button>
         </form>
+
+        <script>
+          document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            console.log('Formulário enviado:', Object.fromEntries(formData));
+            alert('Formulário enviado com sucesso!');
+          });
+        </script>
+
       </div>
     </section>
   </main>
